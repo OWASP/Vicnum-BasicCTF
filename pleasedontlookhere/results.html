@@ -1,0 +1,47 @@
+<html><head>
+<title> Welcome to the CTF Friendly Results Page</title>
+<link rel="shortcut icon" href="/favicon.ico" />
+<script language="JavaScript">
+function sf() {
+document.g.player.focus();
+		}
+</script>
+<script language="JavaScript">
+function checktag(){
+var RE = /[<>]/;
+ if (RE.test(document.g.player.value)) {
+  alert("Invalid characters entered ");
+	return false;
+ } else {
+  	return true;
+ }
+}
+</script>
+</head>
+<body background="../images/ctech.png" text=navy   onLoad="sf();">
+<table  CELLPADDING="5" WIDTH="100%"> 
+  <tr> 
+    <td WIDTH="50%">Welcome to the Basic CTF  challenge
+  </tr>
+</table> 
+<hr size="3" color="#FF00FF"></h2>
+<p>
+ Enter your name(or the name of your hacking team), the player's real name (remember the realm) and their password in the fields below.
+<p>
+
+<p>
+<form NAME="g" ACTION="results1.php" METHOD="get">
+Your name: <input type="text" name="ctfplayername" > <p>
+The player's real name: <input type="text" name="username" ><p>
+The player's password: <input type="text" name="password" ><p>
+<input TYPE="SUBMIT"  VALUE="Submit"><p>
+</form>
+<hr size="3" color="#FF00FF"><br>
+<b> Players that use automated tools or brute forcing techniques will be blacklisted (and it probably won't help).</b> <p>
+<b> Players that attempt to DoS the game environment or another player will also be blacklisted. </b><p>
+<b> No sharing of your methodology or findings is allowed until the event has concluded.</b> <p>
+<b> No SSH or console access to the challenge environment is allowed for this Challenge.</b> <p> 
+<b> If you have solved the challenge then step away and do not abuse the results page - allow others to play (this is a Friendly).</b> <p> 
+<b> No social engineering or phishing of the game referees is permitted.</b> <p>
+<hr size="3" color="#FF00FF"></h2>
+<body>

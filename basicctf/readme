@@ -1,0 +1,41 @@
+This is a readme file for a simple vulnerable web app that can function as a lightweight ctf.
+
+It is intended to demonstrate some basic (pun intended) vulns and have a little fun.
+There are a few similarities to other vicnum vulnerable web apps and can certainly share the same structure. A basic skill set players should have is packet analysis and http error codes.
+
+A few possible setup suggestions:
+
+Set up a database table as is shown below, though in the code provided some of the fields are not used.
+create table ctf2 (idnum int(4) not null auto_increment PRIMARY KEY, ctfplayername char(30), username char(30), password char(30), sourceip char(20), tod timestamp);
+YOu will of course have to get your database permissions right as well.  
+
+Set up a hidden directory, that can be found by looking at robots.txt (in the example it is pleasedontlookhere). so something like the below:
+
+User-agent: *
+Disallow: /pleasedontlookhere/
+
+using tcpdump or some such tool create a pcap file tha is downloadable on the main web page of the site. it should be a pcap file of a user logging into the web site on a page that has basic authentication.  In the code provided the tcpdump command was : tcpdump pcap1.pcap port 80
+
+and
+ 
+the htpassword file itself was created in a folder called players with: htpasswd -c .users pbabe
+
+you can have fun with all of this and create users and hidden folders that reflect your environment or whereever the ctf runs.  You can create files in those folders that contain hints as well. In the code provided the username of pbabe is just conor rot13 encoded. And note the player needs to guess the name of the file is result.
+the following files make up the ctf. (consider removing the readme)
+
+/var/www/basicctf# ls
+index.php  pcap1.pcap  readme
+
+/var/www/basicctf# ls ../players
+index.html
+
+/var/www/basicctf# ls ../pleasedontlookhere/
+results1.php  results.html
+
+Thanks to Alvin F. and many at CipherTechs for their help with this.
+
+Comments appreciated.
+
+mordecai.kraushar@owasp.org
+
+
